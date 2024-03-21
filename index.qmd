@@ -391,7 +391,7 @@ corr <- topicCorr(topic_model) %>% .$cor %>%
              y = factor(Var2), 
              fill = value)) +
   geom_tile(color = "white") + 
-  scale_fill_gradient2(low = "#0D1D41", high = "#94465a", mid = "white",
+  scale_fill_gradient2(low = "#1f459c", high = "#94465a", mid = "white",
                        midpoint = 0,
                        limit = c(-1, 1), space = "Lab") +
   geom_text(aes(Var1, Var2, label = round(value, 3)), color = "black", size = 3.5) +
