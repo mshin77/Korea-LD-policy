@@ -224,7 +224,7 @@ delphi_processed_init$pos <- case_when(
 ```
 
 
-**1.8. Create a document-term matrix**
+**1.8. Create a Document-Term Matrix**
 
 ```{r, eval = FALSE}
 #| code-fold: false
@@ -237,7 +237,7 @@ delphi_dfm <- delphi_processed_init %>%
 ```
 
 
-## **2. Topic Modeling**
+## **2. Model Diagnostics**
 
 **2.1. Identify Optimal Topic Numbers**
 
