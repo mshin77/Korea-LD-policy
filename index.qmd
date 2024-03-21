@@ -334,7 +334,7 @@ datatable(tidy_beta_table, rownames = FALSE)
 
 **3.2. Top 10 Associated Words per Topic**
 
-```{r, fig.width = 9, fig.height = 10}
+```{r, fig.width = 9, fig.height = 8}
 top_term <- tidy_beta %>% 
     examine_top_terms(top_n = 10)  
 
@@ -391,7 +391,8 @@ corr <- topicCorr(topic_model) %>% .$cor %>%
              y = factor(Var2), 
              fill = value)) +
   geom_tile(color = "white") + 
-  scale_fill_gradient2(low = "#1f459c", high = "#94465a", mid = "white",
+  scale_fill_gradient2(name = "Value", 
+                       low = "#1f459c", high = "#94465a", mid = "white",
                        midpoint = 0,
                        limit = c(-1, 1), space = "Lab") +
   geom_text(aes(Var1, Var2, label = round(value, 3)), color = "black", size = 3.5) +
@@ -406,7 +407,9 @@ corr <- topicCorr(topic_model) %>% .$cor %>%
     axis.text.y = element_text(size = 11, color = "#3B3B3B"),  
     axis.title = element_text(size = 11, color = "#3B3B3B"),
     axis.title.x = element_text(size = 12, margin = margin(t = 15)),
-    axis.title.y = element_text(size = 12, margin = margin(r = 10)))
+    axis.title.y = element_text(size = 12, margin = margin(r = 10)),
+    legend.title = element_text(size = 11), 
+    legend.text = element_text(size = 11))
 ```
 
 ```{r, fig.width = 8, fig.height = 5, echo = FALSE}
