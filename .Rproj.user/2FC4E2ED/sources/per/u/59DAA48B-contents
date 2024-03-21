@@ -1,0 +1,47 @@
+To replace the Part-of-Speech (POS) tags using your customized rules after tokenizing Korean text with `SimplePos09` and unnesting tokens using `tidytext`, you'll need to follow a few steps. This process involves creating a customized function that adjusts the POS tags based on your specific criteria and then applying this function to the output of the `unnest_tokens` step.
+
+Let's assume you've already tokenized your text and have the tokens and their POS tags. Your next steps are to customize the POS tags and apply these customizations.
+
+1. **Tokenize Text with POS Tags**: Assuming you've modified the tokenizer to keep both the word and its POS tag, you will have a dataframe where each row contains a token and its corresponding POS tag.
+
+2. **Define Custom POS Replacement Function**: Create a function that takes in a token and its POS tag and returns the token with your customized POS tag. For simplicity, let's assume your dataframe has columns `word` for the token and `pos` for the POS tag.
+
+3. **Apply Customization to Your Dataframe**: Use `dplyr` to apply your custom function across your dataframe.
+
+Below is a complete example illustrating these steps:
+
+```r
+library(KoNLP)
+library(dplyr)
+library(tidyr)
+library(tidytext)
+
+# Assume simple_pos09_tokenizer is a function that returns a dataframe with words and their POS tags
+simple_pos09_tokenizer <- function(text) {
+  tagged <- SimplePos09(text)
+  words <- sapply(tagged, `[`, 1)
+  pos <- sapply(tagged, `[`, 2)
+  data.frame(word = words, pos = pos, stringsAsFactors = FALSE)
+}
+
+# Custom POS modification function
+modify_pos <- function(word, pos) {
+  if (word == "가나") {
+    pos <- "NNG"  # Change POS tag to NNG for specific words
+  }
+  return(pos)
+}
+
+text_data <- tibble(id = 1:2, text_col = c("여기 가나 텍스트가 있습니다", "두 번째 문장도 처리합니다"))
+
+tokens_with_pos <- text_data %>%
+  unnest_tokens(output = token, input = text_col, token = simple_pos09_tokenizer, to_lower = FALSE) %>%
+  mutate(pos = modify_pos(word, pos))  # Assuming the tokenizer includes both word and its POS tag
+
+# Print the result with modified POS tags
+print(tokens_with_pos)
+```
+
+This example assumes `simple_pos09_tokenizer` has been adjusted to return both tokens and their POS tags in a suitable format (e.g., a dataframe). The `modify_pos` function is where you define your custom logic for changing POS tags. Finally, `mutate` is used to apply this customization to each row in your dataframe.
+
+Adjust the `modify_pos` function according to your specific rules for POS tag customization. This setup gives you a flexible way to manually adjust POS tags based on the tokens' content.

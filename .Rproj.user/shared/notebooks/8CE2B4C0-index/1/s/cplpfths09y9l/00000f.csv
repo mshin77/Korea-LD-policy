@@ -1,0 +1,5 @@
+"0","# suppressWarnings({"
+"0","# install.packages(""readxl"", ""tidyverse"", ""dplyr"", ""tidytext"", ""stringr"", ""ggplot2"", ""plotly"", ""stm"", ""DT"", ""purrr"", ""furrr"", ""future"", ""tidyr"", ""reshape2"", ""stminsights"", ""numform"")"
+"0","# devtools::install_github('haven-jeon/KoNLP')"
+"0","# devtools::install_github(""mshin77/TextAnalysisR"")"
+"0","# })"
