@@ -10,6 +10,8 @@ editor:
     wrap: 72
 ---
 
+Reproducible materials are also posted to the [Center for Open Science](https://osf.io/4ku8c/?view_only=48a6770b91fd4d74ab36b717ef03791f).
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
@@ -38,6 +40,7 @@ includedLanguages: "af,sq,am,ar,hy,az,eu,be,bn,bs,bg,ca,ceb,zh-CN,zh-TW,co,hr,cs
 **1.1. Install R Packages**
 
 ```{r}
+#| code-fold: false
 # suppressWarnings({
 # install.packages("readxl", "tidyverse", "dplyr", "tidytext", "stringr", "ggplot2", "plotly", "stm", "DT", "purrr", "furrr", "future", "tidyr", "reshape2", "stminsights", "numform")
 # devtools::install_github('haven-jeon/KoNLP')
