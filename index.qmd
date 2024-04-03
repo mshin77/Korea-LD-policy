@@ -1,0 +1,13 @@
+---
+title: "A Delphi Survey on Education Policies and Practices for Future Education of Students With Learning Disabilities"
+format: html
+date: ""
+toc: false
+---
+
+The website contains supplemental materials and code used to analyze text data. The manuscript is currently under peer review and will be available through the publisher once it is accepted.
+
+-   `Supplemental Materials` include Tables S1 to S6, which show education policies and practices for the future education of students with learning disabilities.
+-   `Code` displays all R codes used to preprocess and run topic modeling.
+
+![](images/main.png){fig-align="center" width="400"}

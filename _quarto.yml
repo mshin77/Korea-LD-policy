@@ -1,0 +1,76 @@
+project:
+  type: website
+  title: "Delphi Survey"
+  execute-dir: project
+  output-dir: docs
+  render: 
+      - index.qmd
+      - policy.qmd
+      - code.qmd
+      - materials/table-s1.qmd
+      - materials/table-s2.qmd
+      - materials/table-s3.qmd
+      - materials/table-s4.qmd
+      - materials/table-s5.qmd
+      - materials/table-s6.qmd
+website:
+  title: "Delphi Survey"
+  site-url: ""
+  repo-url: ""
+  page-footer:
+    left: "This page was built with [Quarto](https://quarto.org/)."
+  navbar:
+    background: "#0077b3"
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Supplemental Materials
+        menu: 
+          - href: materials/table-s1.qmd
+            text: "Table S1"
+          - href: materials/table-s2.qmd
+            text: "Table S2"
+          - href: materials/table-s3.qmd
+            text: "Table S3"
+          - href: materials/table-s4.qmd
+            text: "Table S4" 
+          - href: materials/table-s5.qmd
+            text: "Table S5"
+          - href: materials/table-s6.qmd
+            text: "Table S6" 
+      - href: code.qmd
+    right:
+      - icon: github
+        href: ""
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - href: materials/table-s1.qmd
+        text: "Table S1"
+      - href: materials/table-s2.qmd
+        text: "Table S2"
+      - href: materials/table-s3.qmd
+        text: "Table S3"
+      - href: materials/table-s4.qmd
+        text: "Table S4" 
+      - href: materials/table-s5.qmd
+        text: "Table S5"
+      - href: materials/table-s6.qmd
+        text: "Table S6" 
+      - code.qmd
+    page-navigation: true
+    
+format:
+  html:
+    theme: Sandstone
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+
+callout-appearance: simple
+
+date: today
+date-format: iso
+execute: 
+  freeze: auto
