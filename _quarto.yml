@@ -1,6 +1,6 @@
 project:
   type: website
-  title: "Delphi Survey"
+  title: ""
   execute-dir: project
   output-dir: docs
   render: 
@@ -14,7 +14,7 @@ project:
       - materials/table-s5.qmd
       - materials/table-s6.qmd
 website:
-  title: "Delphi Survey"
+  title: ""
   site-url: ""
   repo-url: ""
   page-footer:
