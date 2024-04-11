@@ -1,5 +1,5 @@
 ---
-title: "A Delphi Survey on Education Policies and Practices for Future Education of Students With Learning Disabilities"
+title: "Delphi Surveys on Education Policies and Practices for Future Education of Students With Learning Disabilities in South Korea"
 format: html
 date: ""
 toc: false
