@@ -8,8 +8,6 @@ format:
     toc: true
 ---
 
-Reproducible materials are also posted at the [Center for Open Science](https://osf.io/4ku8c/?view_only=48a6770b91fd4d74ab36b717ef03791f).
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
