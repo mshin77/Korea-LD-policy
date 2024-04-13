@@ -12,6 +12,8 @@ format:
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
 
+Reproducible materials are also posted at the [Center for Open Science](https://osf.io/tmf5a/?view_only=4ba3716274084ea9a0d2a2c1df65e93e).
+
 ## 1. Set Up
 
 **1.1. Install R Packages**
