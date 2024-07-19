@@ -1,5 +1,5 @@
 ---
-title: "Proposals of Education Policies and Practices for Students With Learning Disabilities in South Korea: Delphi Surveys and Topic Modeling"
+title: "Proposals of Education Policies and Practices for Students With Learning Disabilities in South Korea Using Delphi Surveys and Topic Modeling"
 format: html
 date: ""
 toc: false
@@ -7,7 +7,8 @@ toc: false
 
 The website contains supplemental materials and code used to analyze text data. The manuscript is currently under peer review and will be available through the publisher once it is accepted.
 
--   `Supplemental Materials` include Tables S1 to S6, which show education policies and practices for the future education of students with learning disabilities.
--   `Code` displays all R codes used to preprocess and run topic modeling.
+- `Supplemental Materials` include Tables S1 to S6, which show education policies and practices for the future education of students with learning disabilities.
+- `Research Process` shows the three rounds of Delphi surveys and the process of topic modeling.
+- `Code` displays all R codes used to preprocess and run topic modeling.
 
 ![](images/main.png){fig-align="center" width="400"}

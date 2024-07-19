@@ -6,6 +6,7 @@ project:
   render: 
       - index.qmd
       - policy.qmd
+      - process.qmd
       - code.qmd
       - materials/table-s1.qmd
       - materials/table-s2.qmd
@@ -24,6 +25,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: process.qmd
+        text: Research Process
       - text: Supplemental Materials
         menu: 
           - href: materials/table-s1.qmd
@@ -46,6 +49,7 @@ website:
     style: docked
     search: true
     contents:
+      - process.qmd
       - href: materials/table-s1.qmd
         text: "Table S1"
       - href: materials/table-s2.qmd

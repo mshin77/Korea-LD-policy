@@ -16,7 +16,7 @@ Reproducible materials are also posted at the [Center for Open Science](https://
 
 ## 1. Set Up
 
-**1.1. Install R Packages**
+#### 1.1. Install R Packages
 
 ```{r}
 #| code-fold: false
@@ -27,7 +27,7 @@ Reproducible materials are also posted at the [Center for Open Science](https://
 # })
 ```
 
-**1.2. Load R Packages**
+#### 1.2. Load R Packages
 
 ```{r}
 suppressPackageStartupMessages({
@@ -55,7 +55,7 @@ suppressPackageStartupMessages({
 suppressWarnings(library(tidyverse))
 ```
 
-**1.3. Load Dataset**
+#### 1.3. Load Dataset
 
 ```{r}
 #| code-fold: false
@@ -63,7 +63,9 @@ suppressWarnings(library(tidyverse))
 load("data/delphi_data.RData")
 ```
 
-**1.4. Functions for Preprocessing of Hangul**
+## 2. Preporcess Text Data
+
+#### 2.1. Functions for Preprocessing of Hangul
 
 ```{r, eval = FALSE}
 # This function is to remove specific patterns from a text column.
@@ -157,7 +159,7 @@ calculate_tf_idf <- function(data, pos, document, ...) {
 }
 ```
 
-**1.5. Preprocess Hangul Text**
+#### 2.2. Preprocess Hangul Text
 
 ```{r, eval = FALSE}
 #| code-fold: false
@@ -166,7 +168,7 @@ delphi_processed_init <- delphi_data %>%
     extract_pos(text_col = "processed_text") 
 ```
 
-**1.6. Identify Commonly Observed Words**
+#### 2.3. Identify Commonly Observed Words
 
 ```{r, fig.width = 8, fig.height = 5}
 #| code-fold: false
@@ -191,7 +193,7 @@ top_20_pos_gg <- ggplot(top_20_pos, aes(x = reorder(pos, n), y = n)) +
 top_20_pos_gg %>% ggplotly()
 ```
 
-**1.7. Remove Stopwords**
+#### 2.4. Remove Stopwords
 
 ```{r, eval = FALSE}
 #| code-fold: false
@@ -206,7 +208,7 @@ delphi_processed_init$pos <- case_when(
 ```
 
 
-**1.8. Create a Document-Term Matrix**
+#### 2.5. Create a Document-Term Matrix
 
 ```{r, eval = FALSE}
 #| code-fold: false
@@ -218,9 +220,9 @@ delphi_dfm <- delphi_processed_init %>%
     cast_dfm(item, pos, n)
 ```
 
-## 2. Model Diagnostics
+## 3. Identification of Optimal Topic Numbers (Research Question 1)
 
-**2.1. Identify Optimal Topic Numbers**
+#### 3.1. Model Diagnostics 
 
 ```{r, eval = FALSE}
 
@@ -281,7 +283,7 @@ K_result %>%
        title = "")
 ```
 
-**2.2. Structural Topic Modeling**
+#### 3.2. Structural Topic Modeling
 
 ```{r, eval = FALSE}
 #| code-fold: false
@@ -293,71 +295,7 @@ topic_model <- stm(delphi_dfm, K = 6,
                    seed = 1234)
 ```
 
-
-## 3. Word Probabilities
-
-**3.1. Probability of Words Observed in Each Topic (Beta)**
-
-```{r, eval = FALSE}
-tidy_beta <- tidy(topic_model, 
-                  matrix = "beta", 
-                  document_names = rownames(delphi_dfm), 
-                  log = FALSE) 
-
-tidy_beta_table <- tidy_beta %>% 
-  mutate(beta = round(beta, 3)) %>%
-  arrange(topic, desc(beta), .by_group = TRUE) 
-```
-
-```{r, echo = FALSE}
-datatable(tidy_beta_table, rownames = FALSE)
-```
-
-**3.2. Top 10 Associated Words per Topic**
-
-```{r, fig.width = 9, fig.height = 8}
-top_term <- tidy_beta %>% 
-    examine_top_terms(top_n = 10)  
-
-top_term$term <- c("reinforcement", "development", "management", "teacher", 
-                   "education", "education", "Ministry of Education", 
-                   "Education Office", "composition", "establishment", 
-                   "institution", "function", "foundation", "basic education", 
-                   "slow learners", "diverse", "responsible", "target", "measures", 
-                   "legislation", "case", "work", "capacity", "role", "connection", 
-                   "budget", "operation", "recognition", "data", "disability", 
-                   "proactive", "expert", "expertise", "information", "policy", "provide", 
-                   "focus", "intelligence", "support", "support", "support", "diagnosis", 
-                   "diagnosis", "career", "inclusive classroom", "special education teacher", 
-                   "special education", "students eligible for special education", 
-                   "special education support center", "special class", "lifelong education", 
-                   "lifelong education institution", "program", "school", "parents", "student", 
-                   "learning", "learning disability", "cooperation", "promotion")
-
-top_term %>% plot_topic_term(ncol = 2) +
-    labs(x = "Word", y = expression("Word Probabilities"~(beta))) +
-      theme(axis.text.y = element_text(size = 13, color = "#3B3B3B"))
-```
-
-## 4. Topic Proportions
-
-**4.1. Probability of Topics per Document (Gamma)**
-
-```{r, eval = FALSE}
-tidy_gamma <- tidy(topic_model,
-                   matrix = "gamma",
-                   document_names = rownames(delphi_dfm), log = FALSE) 
-
-tidy_gamma_table <- tidy_gamma %>% 
-  mutate(gamma= round(gamma, 3)) %>%
-  arrange(topic, desc(gamma), .by_group = TRUE) 
-```
-
-```{r, echo = FALSE}
-datatable(tidy_gamma_table, rownames = FALSE)
-```
-
-**4.2. Correlations Between Topics**
+## 4. Correlations Between Topics (Research Question 2)
 
 ```{r, fig.width = 8, fig.height = 5}
 extract_lower_tri <- function(x){
@@ -397,3 +335,72 @@ corr <- topicCorr(topic_model) %>% .$cor %>%
 corr
 ```
 
+## 5. Education Policies and Practices for Students With LD (Research Question 3)
+
+#### 5.1. Probability of Words Observed in Each Topic (Beta)
+
+```{r, eval = FALSE}
+tidy_beta <- tidy(topic_model, 
+                  matrix = "beta", 
+                  document_names = rownames(delphi_dfm), 
+                  log = FALSE) 
+
+tidy_beta_table <- tidy_beta %>% 
+  mutate(beta = round(beta, 3)) %>%
+  arrange(topic, desc(beta), .by_group = TRUE) 
+```
+
+```{r, echo = FALSE}
+datatable(tidy_beta_table, rownames = FALSE)
+```
+
+#### 5.2. Top 10 Associated Words per Topic
+
+```{r, fig.width = 9, fig.height = 8}
+top_term <- tidy_beta %>% 
+    examine_top_terms(top_n = 10)  
+
+top_term$term <- c("reinforcement", "development", "management", "teacher", 
+                   "education", "education", "Ministry of Education", 
+                   "Education Office", "composition", "establishment", 
+                   "institution", "function", "foundation", "basic education", 
+                   "slow learners", "diverse", "responsible", "target", "measures", 
+                   "legislation", "case", "work", "capacity", "role", "connection", 
+                   "budget", "operation", "recognition", "data", "disability", 
+                   "proactive", "expert", "expertise", "information", "policy", "provide", 
+                   "focus", "intelligence", "support", "support", "support", "diagnosis", 
+                   "diagnosis", "career", "inclusive classroom", "special education teacher", 
+                   "special education", "students eligible for special education", 
+                   "special education support center", "special class", "lifelong education", 
+                   "lifelong education institution", "program", "school", "parents", "student", 
+                   "learning", "learning disability", "cooperation", "promotion")
+
+top_term %>% plot_topic_term(ncol = 2) +
+    labs(x = "Word", y = expression("Word Probabilities"~(beta))) +
+      theme(axis.text.y = element_text(size = 13, color = "#3B3B3B"))
+```
+
+#### 5.3. Probability of Topics per Document (Gamma)
+
+```{r, eval = FALSE}
+tidy_gamma <- tidy(topic_model,
+                   matrix = "gamma",
+                   document_names = rownames(delphi_dfm), log = FALSE) 
+
+tidy_gamma_table <- tidy_gamma %>% 
+  mutate(gamma= round(gamma, 3)) %>%
+  arrange(topic, desc(gamma), .by_group = TRUE) 
+```
+
+```{r, echo = FALSE}
+datatable(tidy_gamma_table, rownames = FALSE)
+```
+
+#### 5.4. Topic Proportions in the Whole Corpus of Policy Items
+
+```{r, fig.width = 8, fig.height = 5, echo = FALSE}
+tidy_gamma_gg <- tidy_gamma %>%
+    topic_probability_plot(top_n = 15) %>% plotly::ggplotly()
+
+tidy_gamma_gg %>% layout(title = "")
+```

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>/index.html</loc>
-    <lastmod>2024-04-19T18:11:05.212Z</lastmod>
+    <lastmod>2024-07-18T22:01:32.897Z</lastmod>
   </url>
   <url>
     <loc>/policy.html</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>/code.html</loc>
-    <lastmod>2024-04-17T14:42:01.581Z</lastmod>
+    <lastmod>2024-07-19T04:38:57.137Z</lastmod>
   </url>
   <url>
     <loc>/materials/table-s6.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>/materials/table-s1.html</loc>
-    <lastmod>2024-04-19T18:47:23.179Z</lastmod>
+    <lastmod>2024-04-19T18:33:12.652Z</lastmod>
   </url>
   <url>
     <loc>/materials/table-s3.html</loc>
@@ -35,5 +35,9 @@
   <url>
     <loc>/materials/table-s5.html</loc>
     <lastmod>2024-04-19T18:48:00.726Z</lastmod>
+  </url>
+  <url>
+    <loc>/process.html</loc>
+    <lastmod>2024-07-19T04:05:03.582Z</lastmod>
   </url>
 </urlset>
