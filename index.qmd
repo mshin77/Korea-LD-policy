@@ -5,7 +5,7 @@ date: ""
 toc: false
 ---
 
-The website contains supplemental materials and code used to analyze text data in Shin, Park, and Kang (in press).
+The website contains supplemental materials and code used to analyze text data in Shin, Park, and Kang (in press). Reproducible materials are also posted at the [Center for Open Science](https://doi.org/10.17605/OSF.IO/TMF5A).
 
 -   `Supplemental Materials` include Tables S1 to S6, which show education policies and practices for the future education of students with learning disabilities.
 -   `Research Process` shows the three rounds of Delphi surveys and the process of topic modeling.
