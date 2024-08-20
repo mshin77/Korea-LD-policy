@@ -5,10 +5,15 @@ date: ""
 toc: false
 ---
 
-The website contains supplemental materials and code used to analyze text data. The manuscript is currently under peer review and will be available through the publisher once it is accepted.
+The website contains supplemental materials and code used to analyze text data in Shin, Park, and Kang (in press).
 
-- `Supplemental Materials` include Tables S1 to S6, which show education policies and practices for the future education of students with learning disabilities.
-- `Research Process` shows the three rounds of Delphi surveys and the process of topic modeling.
-- `Code` displays all R codes used to preprocess and run topic modeling.
+-   `Supplemental Materials` include Tables S1 to S6, which show education policies and practices for the future education of students with learning disabilities.
+-   `Research Process` shows the three rounds of Delphi surveys and the process of topic modeling.
+-   `Code` displays all R codes used to preprocess and run topic modeling.
+
+- Shin, M., Park, H., & Kang, E. (in press). Proposals of education policies and practices for students with learning disabilities in South Korea using Delphi surveys and topic modeling. *Learning Disability Quarterly*.
 
 ![](images/main.png){fig-align="center" width="400"}
+
+
+
